@@ -20,7 +20,8 @@
 
 #include "integrate.h"
 
-#include <cstdio>
+#include <iomanip>
+#include <iostream>
 
 // TODO(): parallelise the body of this function.
 // Starter implementation is a serial fallback so the file builds on day 2.
@@ -48,6 +49,7 @@ int main()
 
     // Deterministic output — stdout is the correctness channel only. Timing
     // is measured by the hyperfine harness into perf-results-a1.json.
-    std::printf("integral = %.12f\n", result);
+    std::cout << "integral = " << std::fixed << std::setprecision(12)
+              << result << "\n";
     return 0;
 }
