@@ -1,5 +1,6 @@
 build/
 **/*.o
+integrate_tsan
 
 # Local Claude-Code guidance — per ~/CLAUDE.md, never tracked.
 **/CLAUDE.md
