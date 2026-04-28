@@ -16,7 +16,10 @@ module load tools/prod GCC/13.3.0 CMake Python numactl
 
 export PATH="$HOME/.cargo/bin:$PATH"
 if ! command -v hyperfine >/dev/null 2>&1; then
-    echo "hyperfine not found on PATH"; exit 1
+    echo "hyperfine not found; bootstrapping via cargo (one-off, ~3 min)…"
+    module load Rust 2>/dev/null || true
+    cargo install --locked hyperfine \
+        || { echo "error: cargo install hyperfine failed"; exit 1; }
 fi
 
 cd "$PBS_O_WORKDIR"

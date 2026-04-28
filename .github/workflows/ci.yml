@@ -40,13 +40,18 @@ jobs:
       - name: clang-tidy
         run: |
           set -o pipefail
+          # WarningsAsErrors policy lives in .clang-tidy at repo root.
           clang-tidy-20 -p build $(git ls-files '*.cpp' '*.c') \
             -- -I/usr/lib/llvm-20/include 2>&1 | tee clang-tidy.txt
 
       - name: cppcheck
         run: |
           set -o pipefail
+          # `--error-exitcode=1` makes cppcheck *fail the step* on any
+          # finding rather than silently exit 0 with diagnostics on
+          # stdout (which produces a green badge for buggy code).
           cppcheck --enable=performance,warning,style --quiet \
+            --error-exitcode=1 \
             --project=build/compile_commands.json 2>&1 | tee cppcheck.txt
 
       - name: clang-format
