@@ -22,7 +22,7 @@
 
 #include <cstdio>
 
-// TODO(student): parallelise the body of this function.
+// TODO(): parallelise the body of this function.
 // Starter implementation is a serial fallback so the file builds on day 2.
 double integrate_parallel(double a, double b, long n)
 {
