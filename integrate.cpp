@@ -28,6 +28,8 @@ double integrate_parallel(double a, double b, long n)
 {
     const double h = (b - a) / static_cast<double>(n);
     double sum = 0.5 * (f(a) + f(b));
+
+    #pragma omp parallel for default(none) shared(a, h, n) reduction(+:sum) schedule(static)
     for (long i = 1; i < n; ++i) {
         const double x = a + (static_cast<double>(i) * h);
         sum += f(x);
