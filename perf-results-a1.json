@@ -1,0 +1,5 @@
+{"results": [
+  {"thread_count": 1, "time_s": 1.93680217342},
+  {"thread_count": 16, "time_s": 0.23639619736},
+  {"thread_count": 64, "time_s": 0.07364486292000001},
+  {"thread_count": 128, "time_s": 0.04564830012}]}
