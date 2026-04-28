@@ -49,7 +49,6 @@ int main()
 
     // Deterministic output — stdout is the correctness channel only. Timing
     // is measured by the hyperfine harness into perf-results-a1.json.
-    std::cout << "integral = " << std::fixed << std::setprecision(12)
-              << result << "\n";
+    std::cout << "integral = " << std::fixed << std::setprecision(12) << result << "\n";
     return 0;
 }
